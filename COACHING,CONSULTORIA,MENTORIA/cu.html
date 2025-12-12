@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cuestionario: Coaching, Mentoría y Consultoría</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <header>
+<h1>Herramientas Administrativas</h1>
+<nav>
+    <ul>
+        <li><a href="pag1.html">Inicio</a></li>
+        <li><a href="coaching.html">cuadro comparativo</a></li>
+        <li><a href="tutoriales.html">Videos</a></li>
+        <li><a href="cu.html">Cuestionario</a></li>
+        
+    </ul>
+</nav>
+</header>
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --accent:#0f62fe;
+      --muted:#6b7280;
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0b1220;
+      padding:28px;
+    }
+    .container{
+      max-width:920px;
+      margin:0 auto;
+    }
+    header{margin-bottom:18px}
+    h1{margin:0 0 6px;font-size:1.4rem}
+    p.lead{margin:0;color:var(--muted)}
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 6px 18px rgba(16,24,40,0.06);
+      margin-bottom:14px;
+    }
+    .question{margin-bottom:14px}
+    .q-title{font-weight:600;margin-bottom:6px}
+    .options{display:flex;flex-direction:column;gap:8px}
+    .response{
+      margin-top:8px;
+      padding:10px;
+      border-left:4px solid var(--accent);
+      background:#f1f8ff;
+      border-radius:8px;
+      display:none;
+    }
+    label.option{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      cursor:pointer;
+      user-select:none;
+    }
+    small.hint{color:var(--muted)}
+    footer{margin-top:18px;color:var(--muted);font-size:0.9rem}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:720px){ .row{grid-template-columns:1fr} }
+    .btn{
+      display:inline-block;background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Cuestionario — Coaching, Mentoría y Consultoría</h1>
+      <p class="lead">Selecciona tus opciones. Al final podrás descargar un PDF con tus respuestas.</p>
+    </header>
+
+    <form id="cuestionario">
+
+      <!-- 1 -->
+      <section class="card question" aria-labelledby="q1">
+        <div id="q1" class="q-title">1. ¿Cuál de estos servicios te interesa más en este momento?</div>
+        <div class="options" role="radiogroup" aria-labelledby="q1">
+
+          <label class="option">
+            <input type="radio" name="servicio" value="consultoria" 
+            data-response='La consultoría te ayudará a identificar problemas, analizar tu negocio y crear soluciones estratégicas para mejorar procesos, ventas o administración.'> 
+            Consultoría
+          </label>
+
+          <label class="option">
+            <input type="radio" name="servicio" value="mentoria" 
+            data-response='La mentoría te conecta con alguien con experiencia real en tu industria, que te guía con consejos prácticos basados en lo que ya vivió.'>
+            Mentoría
+          </label>
+
+          <label class="option">
+            <input type="radio" name="servicio" value="coaching" 
+            data-response='El coaching te ayuda a desarrollar habilidades personales como liderazgo, toma de decisiones, enfoque y crecimiento profesional.'>
+            Coaching
+          </label>
+
+          <label class="option">
+            <input type="radio" name="servicio" value="no-seguro"
+            data-response='Te ayudamos a descubrir si necesitas orientación técnica (consultoría), experiencia práctica (mentoría) o desarrollo personal (coaching).'>
+            No estoy seguro(a)
+          </label>
+
+        </div>
+        <div id="resp-servicio" class="response"></div>
+      </section>
+
+      <!-- 2 -->
+      <section class="card question" aria-labelledby="q2">
+        <div id="q2" class="q-title">2. ¿Has trabajado antes con consultores, mentores o coaches?</div>
+        <div class="options" role="radiogroup" aria-labelledby="q2">
+
+          <label class="option">
+            <input type="radio" name="experiencia" value="si" 
+            data-response='Perfecto, adaptamos el proceso basándonos en tu experiencia previa para que sea más efectivo.'>
+            Sí
+          </label>
+
+          <label class="option">
+            <input type="radio" name="experiencia" value="no"
+            data-response='No hay problema. Te explicamos cómo funciona cada modalidad y te ayudamos a elegir la mejor para tus objetivos.'>
+            No
+          </label>
+        </div>
+        <div id="resp-experiencia" class="response"></div>
+      </section>
+
+      <!-- 3 -->
+      <section class="card question" aria-labelledby="q3">
+        <div id="q3" class="q-title">3. ¿Qué área te gustaría mejorar más?</div>
+        <div class="options">
+
+          <label class="option">
+            <input type="radio" name="area" value="finanzas"
+            data-response='Te ayudamos con presupuestos, control de gastos, precios, utilidades y proyecciones.'>
+            Finanzas
+          </label>
+
+          <label class="option">
+            <input type="radio" name="area" value="marketing"
+            data-response='Podemos trabajar en atracción de clientes, redes sociales, ventas y posicionamiento.'>
+            Marketing
+          </label>
+
+          <label class="option">
+            <input type="radio" name="area" value="administracion"
+            data-response='Mejoramos tu organización interna, procesos y eficiencia.'>
+            Administración
+          </label>
+
+          <label class="option">
+            <input type="radio" name="area" value="operaciones"
+            data-response='Optimización de procesos, reducción de tiempos y costos.'>
+            Operaciones
+          </label>
+
+          <label class="option">
+            <input type="radio" name="area" value="liderazgo"
+            data-response='Desarrollamos habilidades para dirigir equipos, delegar y tomar decisiones.'>
+            Liderazgo
+          </label>
+
+          <label class="option">
+            <input type="radio" name="area" value="desarrollo"
+            data-response='Fortalecemos tu seguridad, claridad, confianza y enfoque.'>
+            Desarrollo personal
+          </label>
+
+        </div>
+        <div id="resp-area" class="response"></div>
+      </section>
+
+      <!-- 4 -->
+      <section class="card question">
+        <div class="q-title">4. ¿Te gustaría recibir apoyo para tomar decisiones estratégicas en tu empresa?</div>
+        <div class="options">
+
+          <label class="option">
+            <input type="radio" name="apoyo_estrategico" value="si"
+            data-response='Te apoyamos con planeación, análisis de riesgos, proyecciones y diseño de estrategias.'>
+            Sí
+          </label>
+
+          <label class="option">
+            <input type="radio" name="apoyo_estrategico" value="no"
+            data-response='Perfecto, entonces nos enfocamos en habilidades personales, organización o procesos.'>
+            No
+          </label>
+        </div>
+        <div id="resp-apoyo" class="response"></div>
+      </section>
+
+      <!-- 5 -->
+      <section class="card question">
+        <div class="q-title">5. ¿Prefieres sesiones individuales o grupales?</div>
+        <div class="options">
+
+          <label class="option">
+            <input type="radio" name="modalidad" value="individual"
+            data-response='Las sesiones individuales se adaptan al 100% a tus objetivos.'> 
+            Individuales
+          </label>
+
+          <label class="option">
+            <input type="radio" name="modalidad" value="grupal"
+            data-response='Las sesiones grupales permiten aprender del equipo y compartir experiencias.'>
+            Grupales
+          </label>
+
+          <label class="option">
+            <input type="radio" name="modalidad" value="ambas"
+            data-response='El modelo combinado ofrece acompañamiento personal y aprendizaje colaborativo.'>
+            Ambas
+          </label>
+
+          <label class="option">
+            <input type="radio" name="modalidad" value="no-lo-se"
+            data-response='Te recomendamos la modalidad ideal dependiendo de tu tiempo, presupuesto y objetivos.'>
+            No lo sé
+          </label>
+
+        </div>
+        <div id="resp-modalidad" class="response"></div>
+      </section>
+
+
+      <!-- --- Coaching --- -->
+      <section class="card question">
+        <div class="q-title">COACHING — ¿Qué área personal te gustaría fortalecer?</div>
+        <div class="options">
+
+          <label class="option"><input type="radio" name="c_area" value="liderazgo" data-response='Liderazgo: trabajaremos toma de decisiones, delegación y manejo de equipos.'> Liderazgo</label>
+
+          <label class="option"><input type="radio" name="c_area" value="estres" data-response='Manejo del estrés: técnicas para gestionar emociones y mejorar bienestar.'> Manejo del estrés</label>
+
+          <label class="option"><input type="radio" name="c_area" value="enfoque" data-response='Enfoque y claridad: ordenaremos ideas, prioridades y metas.'> Enfoque y claridad</label>
+
+          <label class="option"><input type="radio" name="c_area" value="confianza" data-response='Confianza: fortalecer autoestima, decisiones y seguridad personal.'> Confianza personal</label>
+
+          <label class="option"><input type="radio" name="c_area" value="comunicacion" data-response='Comunicación: mejorar forma de expresarte y relacionarte.'> Comunicación</label>
+
+          <label class="option"><input type="radio" name="c_area" value="motivacion" data-response='Motivación: recuperar energía, intención y propósito.'> Motivación</label>
+
+        </div>
+        <div id="resp-c_area" class="response"></div>
+      </section>
+
+
+      <!-- Enviar y limpiar -->
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <button type="button" id="resetBtn" class="btn" style="background:#334155">Limpiar respuestas</button>
+        <button type="submit" class="btn">Generar PDF</button>
+      </div>
+
+    </form>
+
+
+  </div>
+
+
+  <!-- ---- LIBRERÍA PDF ---- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+  <!-- ---- SCRIPT COMPLETO ---- -->
+  <script>
+  // Mostrar explicaciones automáticas
+  function initResponses() {
+    const radios = document.querySelectorAll('input[type="radio"]');
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const name = e.target.name;
+        const responseText = e.target.getAttribute('data-response') || '';
+
+        const mapping = {
+          servicio: 'resp-servicio',
+          experiencia: 'resp-experiencia',
+          area: 'resp-area',
+          apoyo_estrategico: 'resp-apoyo',
+          modalidad: 'resp-modalidad',
+          c_area: 'resp-c_area'
+        };
+
+        const respId = mapping[name];
+        if (respId) {
+          const el = document.getElementById(respId);
+          el.textContent = responseText;
+          el.style.display = 'block';
+        }
+      });
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      document.getElementById("cuestionario").reset();
+      document.querySelectorAll(".response").forEach(r => {
+        r.style.display = "none";
+        r.textContent = "";
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initResponses);
+
+
+  // ---- <GENERAR PDF ----
+  document.getElementById("cuestionario").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    let y = 12;
+    doc.setFont("Helvetica", "bold");
+    doc.setFontSize(18);
+    doc.text("Respuestas del Cuestionario", 10, y);
+    y += 12;
+
+    doc.setFont("Helvetica", "normal");
+    doc.setFontSize(12);
+
+    const questions = document.querySelectorAll("section.question");
+
+    questions.forEach(section => {
+      const pregunta = section.querySelector(".q-title")?.innerText || "Pregunta";
+      const selected = section.querySelector("input[type='radio']:checked");
+      const explanationBox = section.querySelector(".response");
+      const explicacion = explanationBox?.innerText?.trim() || "";
+
+      doc.setFont("Helvetica", "bold");
+      let preguntaLines = doc.splitTextToSize(pregunta, 180);
+      doc.text(preguntaLines, 10, y);
+      y += preguntaLines.length * 6;
+
+      doc.setFont("Helvetica", "normal");
+
+      if (selected) {
+        const respuesta = selected.parentElement.innerText.trim();
+        let respLines = doc.splitTextToSize("Respuesta: " + respuesta, 180);
+        doc.text(respLines, 10, y);
+        y += respLines.length * 6;
+      } else {
+        doc.text("Respuesta: Sin respuesta", 10, y);
+        y += 6;
+      }
+
+      if (explicacion !== "") {
+        doc.setFont("Helvetica", "italic");
+        let explLines = doc.splitTextToSize("Explicación: " + explicacion, 180);
+        doc.text(explLines, 10, y);
+        y += explLines.length * 6;
+      }
+
+      y += 6;
+
+      if (y > 270) {
+        doc.addPage();
+        y = 12;
+      }
+    });
+
+    doc.save("respuestas_cuestionario.pdf");
+  });
+  </script>
+
+</body>
+</html>
+<!--URIBE LOPEZ ANGEL FABIAN-->
+<!--Vanegas Zurita Axel Yoztin-->
+<!--Carmona Cortes Vanessa Michelle-->
+<!--Beltran Nicio Erick Fernando-->
+<!--Castillo Morales Jose Lemuel-->
+<!--Chavez Ayala Kimberly Joyce-->
+<!--Juarez González Diana-->
